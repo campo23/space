@@ -9,7 +9,9 @@ def run():
 	w = 600
 	screen = pygame.display.set_mode((h, w))
 	ship = Ship(screen, h, w)
+	ship2 = Ship(screen, h, w)
 	while start:
+		pygame.time.wait(5)
 		event = pygame.event.poll()
 		if event.type == pygame.QUIT:
 			running = 0
@@ -17,6 +19,8 @@ def run():
 		key = pygame.key.get_pressed()
 		ship.move(key, h)
 		ship.draw(screen)
+		print str(ship.collision(ship2.box()))
+		ship2.draw(screen)
 		pygame.display.flip()
 
 if __name__ == '__main__':
