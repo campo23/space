@@ -9,6 +9,9 @@ class Ship:
 		self.pos  = Vec2(w-50,h/2)
 		self.shipR = pygame.Rect(self.pos.x, self.pos.y, self.size.x, self.size.y)
 
+	def collision(self,aabb):
+		return AABBox(self.pos,self.size).itersectionQuad(aabb)
+	
 	def draw(self, screen):
 		pygame.draw.rect(screen, (0, 255, 0), self.shipR)
 
@@ -17,4 +20,6 @@ class Ship:
 			self.pos.x +=2
 		elif(key[pygame.K_a] and self.pos.x>0):
 			self.pos.x -=2
-		self.shipR = pygame.Rect(self.pos.x, self.pos.y, self.size.x, self.size.y)
+		self.shipR.top=self.pos.y
+		self.shipR.left=self.pos.x
+		
