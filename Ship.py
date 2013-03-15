@@ -1,20 +1,20 @@
 import pygame
 from pygame.locals import *
+from Vec2 import Vec2
+from AABBox import AABBox
 
 class Ship:
 	def __init__(self, screen, h, w):
-		self.width = 50
-		self.height = 50
-		self.x = h/2
-		self.y = w-50		
-		self.shipR = pygame.Rect(self.x, self.y, self.width, self.height)
+		self.size = Vec2(50,50)
+		self.pos  = Vec2(w-50,h/2)
+		self.shipR = pygame.Rect(self.pos.x, self.pos.y, self.size.x, self.size.y)
 
 	def draw(self, screen):
 		pygame.draw.rect(screen, (0, 255, 0), self.shipR)
 
 	def move(self, key, h):
-		if(key[pygame.K_d] and self.x<h-50):
-			self.x +=2
-		elif(key[pygame.K_a] and self.x>0):
-			self.x -=2
-		self.shipR = pygame.Rect(self.x, self.y, self.width, self.height)
+		if(key[pygame.K_d] and self.pos.x<h-50):
+			self.pos.x +=2
+		elif(key[pygame.K_a] and self.pos.x>0):
+			self.pos.x -=2
+		self.shipR = pygame.Rect(self.pos.x, self.pos.y, self.size.x, self.size.y)
