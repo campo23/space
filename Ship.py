@@ -6,7 +6,7 @@ from AABBox import AABBox
 class Ship:
 	def __init__(self, screen, h, w):
 		self.size = Vec2(50,50)
-		self.pos  = Vec2(w-50,h/2)
+		self.pos  = Vec2(h/2,w-50)
 		self.shipR = pygame.Rect(self.pos.x, self.pos.y, self.size.x, self.size.y)
 
 	def collision(self,aabb):
