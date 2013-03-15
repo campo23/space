@@ -5,7 +5,7 @@ from Ship import Ship
 def run():
 	pygame.init()   
 	start = 1
-	h = 800
+	h = 1024
 	w = 600
 	screen = pygame.display.set_mode((h, w))
 	ship = Ship(screen, h, w)
@@ -13,9 +13,9 @@ def run():
 		event = pygame.event.poll()
 		if event.type == pygame.QUIT:
 			running = 0
-		print "2"
-		screen.fill((0, 0, 0)) 
-		print "hello"
+		screen.fill((0, 0, 0))
+		key = pygame.key.get_pressed()
+		ship.move(key, h)
 		ship.draw(screen)
 		pygame.display.flip()
 
