@@ -4,8 +4,8 @@ from Vec2 import Vec2
 from AABBox import AABBox
 
 class Bullet:
-	def __init__(self, w):				
-		self.pos     = Vec2(0, 0)
+	def __init__(self, x, y):				
+		self.pos     = Vec2(x, y)
 		self._size   = Vec2(10, 10)
 		self._vel    = -3
 		self._center = self._size/2
