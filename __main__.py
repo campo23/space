@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import *
 from Ship import Ship
+from Asteroid import Asteroid
 
 def run():
 	pygame.init()   
@@ -10,6 +11,8 @@ def run():
 	screen = pygame.display.set_mode((h, w))
 	ship = Ship(screen, h, w)
 	ship2 = Ship(screen, h, w)
+	asteroid = Asteroid(w)
+    
 	while start:
 		pygame.time.wait(5)
 		event = pygame.event.poll()
@@ -19,6 +22,7 @@ def run():
 		key = pygame.key.get_pressed()
 		ship.move(key, h)
 		ship.draw(screen)
+		asteroid.draw(screen)
 		print str(ship.collision(ship2.box()))
 		ship2.draw(screen)
 		pygame.display.flip()
