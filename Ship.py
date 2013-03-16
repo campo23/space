@@ -5,9 +5,9 @@ from AABBox import AABBox
 
 class Ship:
 	def __init__(self, screen, w, h):
-		self.pos     = Vec2(w/2,h-50)
+		self.pos      = Vec2(w/2,h-50)
 		self._size    = Vec2(50,50)
-		self._center  = Vec2(self._size.x/2,self._size.y/2)
+		self._center  = self._size/2
 		self._box     = AABBox(self.pos+self._center,self._center)
 		self._shipR   = pygame.Rect(self.pos.x, self.pos.y, self._size.x, self._size.y)
 
