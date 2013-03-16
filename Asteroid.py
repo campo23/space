@@ -11,7 +11,7 @@ class Asteroid:
 		self._size   = Vec2(20,20)
 		self._center = self._size/2
 		self._box    = AABBox(self.pos+self._center,self._center)
-		self._shipR  = pygame.Rect(self.pos.x, self.pos.y, self._size.x, self._size.y)
+		self._astR  = pygame.Rect(self.pos.x, self.pos.y, self._size.x, self._size.y)
 	
 	def box(self):
 		return self._box
@@ -20,9 +20,9 @@ class Asteroid:
 		return self._box.itersectionQuad(aabb)
 		
 	def draw(self, screen):
-		pygame.draw.rect(screen, (0, 0, 255), self._shipR) 
+		pygame.draw.rect(screen, (0, 0, 255), self._astR) 
 	
 	def move(self):
 		self._box.point=self.pos+self._center
-		self._shipR.top=self.pos.y
-		self._shipR.left=self.pos.x
+		self._astR.top=self.pos.y
+		self._astR.left=self.pos.x
