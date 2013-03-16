@@ -1,11 +1,13 @@
 import pygame
+import random
 from pygame.locals import *
 from Vec2 import Vec2
 from AABBox import AABBox
 
 class Asteroid:
-	def __init__(self, w):
-		self.pos     = Vec2(w/2, 0)
+	random.seed()
+	def __init__(self, w):				
+		self.pos     = Vec2(random.randint(0, w), 0)
 		self._size   = Vec2(20,20)
 		self._center = self._size/2
 		self._box    = AABBox(self.pos+self._center,self._center)
