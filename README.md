@@ -1,1 +1,1 @@
-Assisi; Perugia; Foligno; Terni; Bastia; Cannara; Bettona;
+Assisi;Perugia;Foligno;Terni;Bastia;Cannara;Bettona;
